@@ -1,22 +1,19 @@
-import React from "react";
-import useGet from "./useGet";
-
-const url = "https://mymoney-estudos.firebaseio.com/movimentacao/2019-08.json";
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './elements/Header'
+import Home from './Home'
+import Movimentacoes from './pages/Movimentacoes'
 
 function App() {
-  const data = useGet(url);
-  const data2 = useGet("http://httpbin.org/ip");
-
   return (
-    <div>
-      <h1>MyMoney</h1>
-      {JSON.stringify(data)}
-      {data.loading && <p>loading...</p>}
-      <br />
-
-      <pre>{JSON.stringify(data2)}</pre>
-    </div>
-  );
+    <Router>
+        <div>
+            <Header />
+            <Route path='/' exact component={Home} />
+            <Route path='/movimentacoes/:data' component={Movimentacoes} />
+        </div>  
+     </Router>
+  )
 }
 
 export default App;

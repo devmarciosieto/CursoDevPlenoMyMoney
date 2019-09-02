@@ -16,7 +16,6 @@ const reducer = (state, action) => {
       data: action.data
     };
   }
-  // manipular meu estado
 
   return state;
 };
