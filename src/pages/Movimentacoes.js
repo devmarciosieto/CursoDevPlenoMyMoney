@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Rest from '../utils/rest'
-import { resolve } from 'path';
 
 const baseURL = 'https://mymoney-estudos.firebaseio.com/'
 const { useGet, usePost, useDelete, usePatch } = Rest(baseURL)
@@ -8,9 +7,9 @@ const { useGet, usePost, useDelete, usePatch } = Rest(baseURL)
 const Movimentacoes = ({match}) => {
     const data = useGet(`movimentacoes/${match.params.data}`)
     const dataMeses = useGet(`meses/${match.params.data}`)
-    const [dataPatch, patch] = usePatch()
-    const [postData, salvar] = usePost(`movimentacoes/${match.params.data}`)
-    const [removeData, remover]= useDelete()
+    const [, patch] = usePatch()
+    const [, salvar] = usePost(`movimentacoes/${match.params.data}`)
+    const [, remover]= useDelete()
     const [descricao, setDescricao] = useState('')
     const [valor, setValor] = useState('')
 
